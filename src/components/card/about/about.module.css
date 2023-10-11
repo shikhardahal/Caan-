@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+}
+
+.heading {
+  color: #2161cd;
+  font-size: 16px;
+  font-weight: 300;
+  margin-left: 20px;
+}
+
+.title {
+  color: black;
+  font-size: 36px;
+  font-weight: 700;
+  margin-left: 20px;
+}
+
+.description {
+  color: #000000;
+  font-size: 16px;
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+.readMore {
+  color: #2161cd;
+  font-size: 16px;
+  margin: 5px;
+  border: none;
+  float: right;
+}

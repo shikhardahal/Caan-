@@ -1,0 +1,17 @@
+.box {
+  border: 1px solid #grey;
+  background-color: #grey;
+}
+
+.link {
+  margin: 10px;
+}
+
+.links {
+  float: right;
+  color: #2161cd;
+}
+
+.heading {
+  color: black;
+}

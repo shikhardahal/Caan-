@@ -1,0 +1,42 @@
+.nav-container {
+  background-color: #e3f0ff;
+  margin: 0 auto; /* This will center the navbar container */
+  overflow: hidden; /* This will clear the float */
+}
+
+.navbar {
+  background-color: #e3f0ff;
+  overflow: hidden;
+}
+
+.nav-logo {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.nav-list li {
+  float: left;
+}
+
+.nav-list li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 40px 20px;
+  text-decoration: none;
+}
+
+.nav-list li a:hover {
+  background-color: #ddd;
+  color: black;
+}
