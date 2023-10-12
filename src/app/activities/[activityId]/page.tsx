@@ -1,6 +1,5 @@
-export default function AboutActivity({ params }: { params: { activityId: string } }) {
+export default function Activity() {
   //fetch  {params.activityId}
-  return <div>
-    {params.activityId}
-  </div>;
+  return 
+ ;
 }

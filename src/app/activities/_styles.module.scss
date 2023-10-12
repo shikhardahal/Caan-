@@ -1,0 +1,75 @@
+// Variable
+@import '/src/styles/variables.scss';
+.article_page {
+    display: grid;
+    gap: 4rem;
+}
+
+.article_header {
+    //bg color
+    background: $primary_blue;
+    color: white;
+    text-align: center;
+    padding: 3rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.article_title {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.article_menu {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.grid_responsive {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    @media (min-width: 600px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    @media (min-width:700px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width:900px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width:1200px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.article_footer {
+    background-color: $secondary_gray;
+    color: black;
+    padding: 2rem;
+}
+
+.article_footer_container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.article_footer_title {
+    width: 800px;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

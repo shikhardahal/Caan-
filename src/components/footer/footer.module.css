@@ -1,0 +1,26 @@
+.footer-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.footer-link-about-ansdd {}
+
+.footer-link-most-viewed {}
+
+.footer-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-list li {
+    margin-bottom: 10px;
+}
+
+.footer-list li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-list li a:hover {
+    color: #ff6600;
+}
