@@ -48,3 +48,30 @@
 .icon {
     font-size: 1.55rem;
 }
+
+
+/* style.module.scss */
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* Adjust the gap between grid items as needed */
+}
+
+.footer_content {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+
+/* Optional: Style the list items */
+
+.footer_content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer_content ul li {
+    margin-bottom: 5px;
+}
