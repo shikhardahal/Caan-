@@ -1,5 +1,7 @@
 // Variable
 @import '/src/styles/variables.scss';
+
+
 .article_page {
     display: grid;
     gap: 4rem;
@@ -13,6 +15,7 @@
     padding: 3rem;
     display: grid;
     gap: 0.5rem;
+
 }
 
 .article_title {
@@ -25,7 +28,6 @@
     gap: 1.5rem;
     justify-content: center;
 }
-
 .container {
     max-width: 1400px;
     width: 100%;
@@ -35,8 +37,10 @@
 .grid_responsive {
     display: grid;
     gap: 2rem;
+    
     grid-template-columns: repeat(4, 1fr);
-    @media (min-width: 600px) {
+    
+    @media (min-width:600px) {
         grid-template-columns: repeat(1, 1fr);
     }
     @media (min-width:700px) {
@@ -55,48 +59,21 @@
     color: black;
     padding: 2rem;
 }
-
 .article_footer_container {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-}
 
+}
 .article_footer_title {
     width: 800px;
     font-size: 1.7rem;
     font-weight: 700;
+
 }
 
 .footer_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-
-/* style.module.scss */
-
-.footer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    /* Adjust the gap between grid items as needed */
-}
-
-.footer_content {
-    padding: 20px;
-    border: 1px solid #ccc;
-}
-
-
-/* Optional: Style the list items */
-
-.footer_content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer_content ul li {
-    margin-bottom: 5px;
 }
