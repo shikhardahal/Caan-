@@ -1,41 +1,50 @@
-import React from "react";
+'use client'
+import React, { useState, useEffect } from 'react';
+export function Page() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-import style from "./_style.module.scss";
-import ActivitiesCard from "@/components/Card/ActivitesCard";
-import Pagination from "@/components/Pagination";
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:1337/api/activity-pages?populate[0]=card.img_url');
 
-const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-const ActivitiesPage = () => {
+        const result = await response.json();
+        setData(result);
+        setLoading(true);
+      } catch (e) {
+        setError(`An error occurred while fetching the data: ${e.message}`);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <article className={style.article_page}>
-      <section className={style.article_header}>
-        <h2 className={style.article_title}>Activities</h2>
-        <p>Home / Activities</p>
-      </section>
-      <div className={style.article_menu}>
-        <button className="btn btn-primary">Past Activities</button>
-        <button className="btn btn-secondary">Upcoming Activities</button>
-      </div>
-      <section className={style.container}>
-        <div className={style.grid_responsive}>
-          {number?.map((item, index) => (
-            <ActivitiesCard key={index} />
-          ))}
+    <div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <div>
+          <ul>
+            {data &&
+              data.map((item) => (
+                <li key={item.id}>
+                  <img src={item.card.img_url.data.url} alt="Activity Image" />
+                  {item.title}
+                </li>
+              ))}
+          </ul>
         </div>
-      </section>
-      <Pagination />
-      <div className={style.article_footer}>
-        <section className={`${style.container} ${style.footer_container}`}>
-          <h2 className={style.article_footer_title}>
-            Get all the latest news, updates and documents delivered directly to
-            your inbox instantly
-          </h2>
-          <button className="btn btn-primary">Subscribe to ANSSD</button>
-        </section>
-      </div>
-    </article>
+      )}
+    </div>
   );
-};
-
-export default ActivitiesPage;
+}
