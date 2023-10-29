@@ -1,64 +1,140 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import style from "./_style.module.scss";
-import ActivitiesCard from "@/components/Card/ActivitesCard";
-import Pagination from "@/components/Pagination";
-const ActivitiesPage= () => {
-   // This is a client component 
+'use client';
+import React from 'react';
+import {
+  Box,
+  Typography,
+  Stack,
+  Button,
+  Card,
+  CardActions,
+  CardMedia,
+  CardContent,
+  Container,
+  Grid,
+} from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Layout from "../../components/layout";
 
-  const [activities, setActivities] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+async function getData() {
+  const res = await fetch('http://localhost:1337/api/activities?populate=*')
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch("http://localhost:1337/api/activity-pages?populate=*");
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
 
-      if (!response.ok) {
-        console.log(`HTTP error! Status: ${response.status}`);
-      }
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
 
-      const apidata = await response.json();
-
-      if (apidata) {
-        console.log(apidata.data);
-        const activityData = apidata.data;
-        setActivities(activityData);
-        setLoading(false);
-      }
-    } catch (error) {
-      console.log(`An error occurred while fetching the data: ${error}`);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-
-    fetchData();
-  }, [activities]);
-
+  return res.json()
+}
+type Activity = {
+  name: string;
+  description: string;
+  date: Date;
+  img_url: string;
+}
+const Home = async () => {
+  let data = await getData();
+  type Data = {
+    date: Date,
+    img_url: string;
+    name: string;
+  }
+  console.log(data.data);
   return (
-    <article className={style.article_page}>
-      <section className={style.container}>
-        <div className={style.grid_responsive}>
-        <ActivitiesCard  data={activities} />
-          {activities?.map((c) => {
-            return <>{c.title}</>
-          })}
-        </div>
-      </section>
-      <Pagination />
-      <div className={style.article_footer}>
-        <section className={`${style.container} ${style.footer_container}`}>
-          <h2 className={style.article_footer_title}>
-            Get all the latest news, updates, and documents delivered directly to
-            your inbox instantly
-          </h2>
-          <button className="btn btn-primary">Click Me</button>
-        </section>
-      </div>
-    </article>
-  );
-};
+    <Layout>
+      <br />
+      <br />
+      <Box
+        sx={{
+          pb: { xs: '4rem', md: '7.5rem' },
+          pt: { xs: '3rem', md: '4.313rem' },
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid container rowSpacing={{ xs: 3, md: 5 }} columnSpacing={0.5}>
+            {data.data.map(data => (
+              <Grid item xs={12} sm={6} md={3}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="236"
+                    image="http://localhost:1337/uploads/riul550cr_X_Fe_b9b3afe56f.png"
+                    alt="image"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h6" color="primary">
+                      {data.attributes.date}
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {data.attributes.name}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button variant="text" endIcon={<ArrowForwardIcon />}>
+                      Read More
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))};
+            {data.data.map(data => (
+              <Grid item xs={12} sm={6} md={3}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="236"
+                    image="http://localhost:1337/uploads/Rectangle_14_26badd6162.png"
+                    alt="image"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h6" color="primary">
+                      {data.attributes.date}
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {data.attributes.name}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button variant="text" endIcon={<ArrowForwardIcon />}>
+                      Read More
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))};
+            {data.data.map(data => (
+              <Grid item xs={12} sm={6} md={3}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="236"
+                    image="http://localhost:1337/uploads/Rectangle_14_26badd6162.png"
+                    alt="image"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h6" color="primary">
+                      {data.attributes.date}
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary">
+                      {data.attributes.name}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button variant="text" endIcon={<ArrowForwardIcon />}>
+                      Read More
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))};
+          </Grid>
+        </Container>
+      </Box>
+    </Layout>
 
-export default ActivitiesPage;
+  )
+}
+
+export default Home

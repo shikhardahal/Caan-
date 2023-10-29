@@ -1,0 +1,48 @@
+@import '/src/styles/variables.scss';
+
+.activities_card {
+  display: grid;
+  gap: 1rem;
+  padding: 0.5rem 0rem;
+}
+.card_image {
+  img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+}
+.info {
+}
+.info_date {
+  color: $primary_blue;
+  font-weight: 600;
+  cursor: default;
+}
+.info_title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: default;
+}
+.info_read_more {
+  a {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: $primary_blue;
+    font-weight: 600;
+    cursor: pointer;
+
+    p {
+      line-height: 1;
+    }
+  }
+
+  &:hover {
+    filter: brightness(80%);
+  }
+}
+.icon {
+  font-size: 1.55rem;
+}

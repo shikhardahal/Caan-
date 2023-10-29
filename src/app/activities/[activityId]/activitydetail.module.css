@@ -1,0 +1,44 @@
+.activity__Container {
+  width: 100%;
+  display: flex;
+  color: black;
+  padding: 20px;
+}
+.activity__Contents {
+  width: 70%;
+  height: 100%;
+  line-height: 36px;
+  text-align: justify;
+  padding: 20px;
+}
+.activity__Contents h4 {
+  color: #2161cd;
+}
+
+.activity__Contents h1 {
+  margin: 20px;
+  padding-top: 30px;
+}
+.activity__Lists {
+  width: 30%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #c8c8c8;
+  background: #fff;
+  margin: 70px 10px;
+  padding: 20px 30px;
+}
+.activity__Lists__ItemWrapper {
+}
+
+.activity__Lists__Item {
+  display: flex;
+  gap: 0px 10px;
+  align-items: center;
+  border-bottom: 1px solid #e3e3e3;
+  margin: 10px 0px;
+  padding: 20px 0px;
+}
+.activity__Lists__Item:nth-child(5) {
+  border-bottom: none !important;
+}

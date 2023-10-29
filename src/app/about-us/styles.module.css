@@ -1,0 +1,185 @@
+.App {
+  text-align: center;
+  padding-top: 80px;
+  margin-bottom: -160px;
+  color:black;
+  font:inter;
+  font-weight: 700;
+  font-size: 36px;
+}
+/* App.css */
+.gridcontainer {
+  display: flex;
+  grid-gap: 40px;
+  justify-content: center; 
+  align-items: center;
+  height: 100vh;
+}
+
+.textfieldcontainer {
+  display:flex;
+  border: 1px solid #c7c7c7;
+  /* background-color: transparent; */
+  padding:15px;
+  height: 350px;
+  width: 350px; 
+  text-align: left;
+  border-radius: 9px;
+}
+
+
+.textfield {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.textcontent:first-child {
+  font:inter;
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 29.05px;
+  color:black;
+}
+
+.textcontent:last-child {
+  margin-bottom: 0; 
+  color:black;
+  font:inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 41.28px;
+}
+
+
+/* App.css */
+.teamcontainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 40px;
+  justify-content: center;
+  padding: 230px;
+}
+
+.teamfieldcontainer {
+  text-align: center;
+  border: 1px solid #c7c3c3;
+  background-color: transparent;
+  border-radius: 9px;
+  padding: 10px;
+  max-width: 290px;
+  max-height:300px;
+}
+
+.teamimage img {
+  padding:20px;
+  width: 147px;
+  height: 147px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.textname {
+  font:inter;
+  font-weight: 600;
+  font-size:20px;
+  line-height: 24.2px;
+  font-weight: bold;
+  color: black;
+ 
+}
+
+.textpost {
+  font: inter;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2161CD;
+  font-style: italic;
+  line-height: 34.64px;
+  text-align: center;
+}
+
+/* App.css */
+.wholecontainer {
+  display: flex;
+  align-items: flex-start;
+  padding: 65px;
+  padding-left: 100px;
+}
+
+.imagecont {
+  width: 417px;
+  height:347px; /* Set the width to 40% of the container */
+  margin-right: 20px; 
+  margin-left: 140px;
+}
+
+.imagecont img {
+  width: 100%;
+  height: auto;
+}
+
+.rightfield {
+  max-width: 550px;
+  padding:10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column; 
+}
+
+.toptitle {
+  color:black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.topdesc {
+  padding-top:15px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* App.css */
+.completecontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.msgcontainer {
+  padding:80px;
+  max-width: 717px;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+}
+
+.msgtitle {
+  font:inter;
+  color:black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.msgdesc {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.chairmanname {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: black;
+}
+
+.chairmanimage img {
+  width: 512px; 
+  height: 712px;
+}

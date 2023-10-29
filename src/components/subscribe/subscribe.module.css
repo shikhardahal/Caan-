@@ -1,0 +1,27 @@
+.box {
+  display: flex;
+  background-color: #efefef;
+  margin: 0 auto;
+  height: 120px;
+  width: 100%;
+  align-items: center;
+}
+
+.text {
+  font-weight: bold;
+  color: black;
+  line-height: 0.8;
+  font-size: 22px;
+  margin-left: 150px;
+}
+
+.btn {
+  background-color: #2161cd;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  text-weight: bold;
+  width: 200px;
+  padding: 10px;
+  margin: 90px;
+}
