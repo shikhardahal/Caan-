@@ -1,25 +1,35 @@
-import React from "react";
+import React, { FC } from "react";
 import { BiRightArrowAlt } from "react-icons/bi";
 
 import style from "./style.module.scss";
 
-const ActivitiesCard = () => {
+
+const ActivitiesCard = ({ data }) => {
+
+  const { date, title, img_url , description } = data;
+console.log(img_url);
+
   return (
     <div className={style.activities_card}>
       <div className={style.card_image}>
-        <img
-          src="http://localhost:1337/uploads/89d_Cs_C_Rpi_X9_G_760c21e6fa.png"
-          alt="image"
-        />
+        <img src={`http://localhost:1337/${data.link}`} alt="image" />
+        <br/><br/>
+        {data.id}
+        <br/><br/>
+        {/* {data.attributes.btn.id} */}
+        <br/><br/>
+        {data.description}
+        {data.card}
+        {/* {data.} */}
+        {data.date}
+        {/* {data.link} */}
       </div>
       <div className={style.info}>
-        <p className={style.info_date}>12 July 2023</p>
-        <h4 className={style.info_title}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        </h4>
+        <p className={style.info_date}>{date}</p>
+        <h4 className={style.info_title}>{title}</h4>
       </div>
       <div className={style.info_read_more}>
-        <a href="#">
+        <a href={data.link}>
           <p>Read More</p>
           <BiRightArrowAlt className={style.icon} />
         </a>

@@ -1,50 +1,64 @@
-'use client'
-import React, { useState, useEffect } from 'react';
-export function Page() {
-  const [data, setData] = useState(null);
+"use client";
+import React, { useState, useEffect } from "react";
+import style from "./_style.module.scss";
+import ActivitiesCard from "@/components/Card/ActivitesCard";
+import Pagination from "@/components/Pagination";
+const ActivitiesPage= () => {
+   // This is a client component 
+
+  const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:1337/api/activity-pages?populate[0]=card.img_url');
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:1337/api/activity-pages?populate=*");
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+      if (!response.ok) {
+        console.log(`HTTP error! Status: ${response.status}`);
+      }
 
-        const result = await response.json();
-        setData(result);
-        setLoading(true);
-      } catch (e) {
-        setError(`An error occurred while fetching the data: ${e.message}`);
+      const apidata = await response.json();
+
+      if (apidata) {
+        console.log(apidata.data);
+        const activityData = apidata.data;
+        setActivities(activityData);
         setLoading(false);
       }
-    };
+    } catch (error) {
+      console.log(`An error occurred while fetching the data: ${error}`);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
 
     fetchData();
-  }, []);
+  }, [activities]);
 
   return (
-    <div>
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <div>
-          <ul>
-            {data &&
-              data.map((item) => (
-                <li key={item.id}>
-                  <img src={item.card.img_url.data.url} alt="Activity Image" />
-                  {item.title}
-                </li>
-              ))}
-          </ul>
+    <article className={style.article_page}>
+      <section className={style.container}>
+        <div className={style.grid_responsive}>
+        <ActivitiesCard  data={activities} />
+          {activities?.map((c) => {
+            return <>{c.title}</>
+          })}
         </div>
-      )}
-    </div>
+      </section>
+      <Pagination />
+      <div className={style.article_footer}>
+        <section className={`${style.container} ${style.footer_container}`}>
+          <h2 className={style.article_footer_title}>
+            Get all the latest news, updates, and documents delivered directly to
+            your inbox instantly
+          </h2>
+          <button className="btn btn-primary">Click Me</button>
+        </section>
+      </div>
+    </article>
   );
-}
+};
+
+export default ActivitiesPage;
