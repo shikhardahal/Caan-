@@ -1,26 +1,15 @@
 'use client';
+import { AppProps } from "next/app";
+import React, { useState, useEffect } from "react";
+import styles from "./page.module.css";
+import SearchBox from "@/components/search/Search";
+import AboutCard from "../components/card/about/AboutCard"
 
-import Hero from '../components/hero';
-import Functions from '../components/functions';
-import CallToAction from '../components/cta';
-import ImportantLinks from '../components/importantLinks';
-import OurMedias from '../components/medias';
-import OurActivities from '../components/activities';
-import AboutUs from '../components/about';
-import Layout from "../components/layout"
-const Home = () => {
+export default function Home() {
   return (
-    <Layout>
-      <Hero />
-      <Functions />
-      <AboutUs />
-      <OurActivities />
-      <OurMedias />
-      <ImportantLinks />
-      <CallToAction />
-    </Layout>
-
+    <div className={styles.main}>
+      <SearchBox />
+      <AboutCard />
+    </div>
   )
 }
-
-export default Home;
